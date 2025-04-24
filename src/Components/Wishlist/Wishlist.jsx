@@ -1,45 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Wishlist.css';
+import { useBookContext } from '../../context/BookContext';
+import { orderService } from '../../services/orderService';
+import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
 
 const Wishlist = () => {
-    const [wishlistItems, setWishlistItems] = useState([]);
+    const {
+        wishlist,
+        loading,
+        error,
+        removeFromWishlist,
+        addToCart
+    } = useBookContext();
 
-    useEffect(() => {
-        // Load wishlist items from localStorage
-        const savedWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-        setWishlistItems(savedWishlist);
-    }, []);
-
-    const removeFromWishlist = (itemId) => {
-        const updatedWishlist = wishlistItems.filter(item => item.id !== itemId);
-        setWishlistItems(updatedWishlist);
-        localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
-    };
-
-    const moveToCart = (item) => {
-        // Get current cart items
-        const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
-        
-        // Check if item already exists in cart
-        const existingItem = currentCart.find(cartItem => cartItem.id === item.id);
-        
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            currentCart.push({ ...item, quantity: 1 });
+    const handleBorrow = async (item) => {
+        try {
+            await orderService.borrowBook(item.id);
+            alert('Book borrowed successfully!');
+        } catch (err) {
+            console.error('Borrow error:', err);
+            alert('Failed to borrow book. Please try again.');
         }
-        
-        // Save updated cart
-        localStorage.setItem('cart', JSON.stringify(currentCart));
-        
-        // Remove from wishlist
-        removeFromWishlist(item.id);
     };
+
+    const handleReturn = async (item) => {
+        try {
+            await orderService.returnBook(item.id);
+            removeFromWishlist(item.id);
+            alert('Book returned successfully!');
+        } catch (err) {
+            console.error('Return error:', err);
+            alert('Failed to return book. Please try again.');
+        }
+    };
+
+    if (loading) {
+        return <LoadingIndicator />;
+    }
 
     return (
         <div className="wishlist-container">
             <h2>My Books</h2>
-            {wishlistItems.length === 0 ? (
+            {error && <div className="error-message">{error}</div>}
+            {wishlist.length === 0 ? (
                 <div className="empty-wishlist">
                     <p>Your wishlist is empty</p>
                     <button onClick={() => window.history.back()} className="continue-browsing">
@@ -48,19 +51,36 @@ const Wishlist = () => {
                 </div>
             ) : (
                 <div className="wishlist-items">
-                    {wishlistItems.map(item => (
+                    {wishlist.map(item => (
                         <div key={item.id} className="wishlist-item">
                             <img src={item.image} alt={item.title} />
                             <div className="item-details">
                                 <h3>{item.title}</h3>
                                 <p className="item-price">${item.price}</p>
                                 <div className="item-actions">
-                                    <button 
-                                        onClick={() => moveToCart(item)}
-                                        className="move-to-cart"
-                                    >
-                                        Add to Cart
-                                    </button>
+                                    {!item.borrowed ? (
+                                        <>
+                                            <button 
+                                                onClick={() => addToCart(item)}
+                                                className="move-to-cart"
+                                            >
+                                                Add to Cart
+                                            </button>
+                                            <button 
+                                                onClick={() => handleBorrow(item)}
+                                                className="borrow-button"
+                                            >
+                                                Borrow Book
+                                            </button>
+                                        </>
+                                    ) : (
+                                        <button 
+                                            onClick={() => handleReturn(item)}
+                                            className="return-button"
+                                        >
+                                            Return Book
+                                        </button>
+                                    )}
                                     <button 
                                         onClick={() => removeFromWishlist(item.id)}
                                         className="remove-button"

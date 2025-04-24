@@ -3,8 +3,6 @@ import { useParams } from 'react-router-dom';
 import './BookDetail.css';
 import BookInfo from '../BookInfo/BookInfo';
 import AuthorInfo from '../AuthorInfo/AuthorInfo';
-import RatingBar from '../RatingBar/RatingBar';
-import ReviewSection from '../ReviewSection/ReviewSection';
 
 const BookDetail = () => {
   const { id } = useParams();
@@ -12,18 +10,7 @@ const BookDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [favorites, setFavorites] = useState([]);
-  const [reviewsToShow, setReviewsToShow] = useState(3);
-  const [reviews, setReviews] = useState([]);
   const [authorInfo, setAuthorInfo] = useState(null);
-  const [newReviewText, setNewReviewText] = useState("");
-  const [newReviewRating, setNewReviewRating] = useState(0);
-  const [ratingCounts, setRatingCounts] = useState({
-    5: 0,
-    4: 0,
-    3: 0,
-    2: 0,
-    1: 0,
-  });
 
   useEffect(() => {
     const fetchBookData = async () => {
@@ -39,7 +26,6 @@ const BookDetail = () => {
           description: data.volumeInfo?.description || 'No description available.',
           image: data.volumeInfo?.imageLinks?.thumbnail || 'https://via.placeholder.com/150',
           rating: data.volumeInfo?.averageRating || 'N/A',
-          reviewCount: data.volumeInfo?.ratingsCount || 0,
           price: data.saleInfo?.retailPrice?.amount || 'N/A',
           author: data.volumeInfo?.authors ? data.volumeInfo.authors[0] : null,
           genres: data.volumeInfo?.categories?.join(', ') || 'Unknown',
@@ -51,18 +37,6 @@ const BookDetail = () => {
 
         setBook(bookData);
         setLoading(false);
-
-        const storedReviews = JSON.parse(localStorage.getItem(`reviews-${id}`)) || [];
-        setReviews(storedReviews);
-
-        const counts = storedReviews.reduce(
-          (acc, review) => {
-            acc[review.rating]++;
-            return acc;
-          },
-          { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 }
-        );
-        setRatingCounts(counts);
 
         if (bookData.author) {
           fetchAuthorInfo(bookData.author);
@@ -93,50 +67,11 @@ const BookDetail = () => {
     fetchBookData();
   }, [id]);
 
-  const handleAddReview = () => {
-    if (newReviewText.trim() === "" || newReviewRating === 0) {
-      alert("Please enter a review and select a rating.");
-      return;
-    }
-
-    const newReview = {
-      user: "You",
-      text: newReviewText,
-      rating: newReviewRating,
-    };
-
-    const updatedReviews = [newReview, ...reviews];
-    setReviews(updatedReviews);
-    localStorage.setItem(`reviews-${id}`, JSON.stringify(updatedReviews));
-
-    setRatingCounts((prevCounts) => ({
-      ...prevCounts,
-      [newReviewRating]: prevCounts[newReviewRating] + 1,
-    }));
-
-    setNewReviewText("");
-    setNewReviewRating(0);
-  };
-
-  const handleShowMore = () => {
-    setReviewsToShow(reviewsToShow + 4);
-  };
-
   const addToFavorites = () => {
     const updatedFavorites = [...favorites, book];
     setFavorites(updatedFavorites);
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   };
-
-  const totalRatings = Object.values(ratingCounts).reduce((a, b) => a + b, 0);
-  const averageRating = totalRatings
-    ? (
-        Object.entries(ratingCounts).reduce(
-          (sum, [stars, count]) => sum + stars * count,
-          0
-        ) / totalRatings
-      ).toFixed(1)
-    : "N/A";
 
   if (loading) return <div className="loading">Loading book details...</div>;
   if (error) return <div className="error">Error: {error}</div>;
@@ -154,31 +89,10 @@ const BookDetail = () => {
           </div>
         </div>
 
-        <BookInfo book={book} averageRating={averageRating} totalRatings={totalRatings} />
+        <BookInfo book={book} />
       </div>
 
       <AuthorInfo authorInfo={authorInfo} />
-
-      <div className="reviews-section">
-        <h2>Community Reviews</h2>
-
-        {totalRatings > 0 ? (
-          <RatingBar ratingCounts={ratingCounts} totalRatings={totalRatings} />
-        ) : (
-          <p className="no-ratings">No ratings available</p>
-        )}
-
-        <ReviewSection
-          reviews={reviews}
-          reviewsToShow={reviewsToShow}
-          handleShowMore={handleShowMore}
-          handleAddReview={handleAddReview}
-          newReviewText={newReviewText}
-          setNewReviewText={setNewReviewText}
-          newReviewRating={newReviewRating}
-          setNewReviewRating={setNewReviewRating}
-        />
-      </div>
     </div>
   );
 };

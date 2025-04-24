@@ -1,43 +1,50 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; 
+import { useAuth } from '../../context/AuthContext';
+import { useBookContext } from '../../context/BookContext';
 import './Item.css';
 
 const Item = (props) => {
-  const addToCart = () => {
-    const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
-    const existingItem = currentCart.find(item => item.id === props.id);
-    
-    if (existingItem) {
-      existingItem.quantity += 1;
-    } else {
-      currentCart.push({
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const { addToCart, addToWishlist } = useBookContext();
+
+  const handleAddToCart = () => {
+    if (!user) {
+      navigate('/login', { state: { from: window.location.pathname } });
+      return;
+    }
+
+    try {
+      addToCart({
         id: props.id,
         title: props.title,
         image: props.image,
         price: props.new_price,
         quantity: 1
       });
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+      alert('Failed to add item to cart. Please try again.');
     }
-    
-    localStorage.setItem('cart', JSON.stringify(currentCart));
-    alert('Added to cart successfully!');
   };
 
-  const addToWishlist = () => {
-    const currentWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-    const existingItem = currentWishlist.find(item => item.id === props.id);
-    
-    if (!existingItem) {
-      currentWishlist.push({
+  const handleAddToWishlist = () => {
+    if (!user) {
+      navigate('/login', { state: { from: window.location.pathname } });
+      return;
+    }
+
+    try {
+      addToWishlist({
         id: props.id,
         title: props.title,
         image: props.image,
         price: props.new_price
       });
-      localStorage.setItem('wishlist', JSON.stringify(currentWishlist));
-      alert('Added to My Books successfully!');
-    } else {
-      alert('This book is already in My Books!');
+    } catch (error) {
+      console.error('Error adding to wishlist:', error);
+      alert('Failed to add item to wishlist. Please try again.');
     }
   };
 
@@ -54,8 +61,12 @@ const Item = (props) => {
       </div>
 
       <div className="item-buttons">
-        <button onClick={addToCart} className="borrow-button">Add to Cart</button>
-        <button onClick={addToWishlist} className="wishlist-button">Add to My Books</button>
+        <button onClick={handleAddToCart} className="borrow-button">
+          Add to Cart
+        </button>
+        <button onClick={handleAddToWishlist} className="wishlist-button">
+          Add to My Books
+        </button>
       </div>
     </div>
   );

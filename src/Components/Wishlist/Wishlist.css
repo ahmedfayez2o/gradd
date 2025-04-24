@@ -93,23 +93,66 @@
     gap: 10px;
 }
 
-.move-to-cart {
-    background-color: #4CAF50;
-    color: white;
+.move-to-cart, .borrow-button, .remove-button {
     border: none;
     padding: 8px 16px;
     border-radius: 20px;
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.3s;
+    width: 100%;
+}
+
+.move-to-cart {
+    background-color: #4CAF50;
+    color: white;
 }
 
 .move-to-cart:hover {
     background-color: #3bc042;
 }
 
+.borrow-button {
+    background-color: #ff920e;
+    color: white;
+}
+
+.borrow-button:hover {
+    background-color: #ffaa40;
+}
+
 .remove-button {
     background-color: #ff4d4d;
+    color: white;
+}
+
+.remove-button:hover {
+    background-color: #ff3333;
+}
+
+.error-message {
+    color: #ff4d4d;
+    margin: 10px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Add loading state styles */
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: #666;
+}
+
+/* Add return button styles */
+.return-button {
+    background-color: #f0ad4e;
     color: white;
     border: none;
     padding: 8px 16px;
@@ -117,8 +160,19 @@
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.3s;
+    width: 100%;
 }
 
-.remove-button:hover {
-    background-color: #ff3333;
+.return-button:hover {
+    background-color: #ec971f;
+}
+
+/* Update button states */
+.move-to-cart:disabled,
+.borrow-button:disabled,
+.return-button:disabled,
+.remove-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background-color: #ccc;
 }
