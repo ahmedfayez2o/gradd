@@ -1,0 +1,137 @@
+.testimonials {
+    text-align: center;
+    position: relative;
+    transform: translateY(-430px);
+    background-color: #fffbe7; /* Background color */
+    text-align: center;
+    padding:10px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-bottom: 90px;
+    
+    
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+
+
+.rating {
+    font-size: 1.2em;
+    color: gold;
+}
+
+.about {
+    display: flex; /* Use Flexbox to position elements in a row */
+    justify-content: space-between; /* Space the content between the left and right */
+    align-items: center; /* Vertically align the content */
+    margin-top: 40px; /* Add some space from the testimonials section */
+    padding: 20px;
+}
+
+
+
+.profile-image {
+    width: 120px; /* Adjust image size */
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover; /* Ensure image maintains aspect ratio */
+    margin-left: 20px; /* Add space to the left of the image */
+}
+
+/* src/About.css */
+.aboutt {
+   width:100px;
+    padding: 20px;
+    border-radius: 8px;
+   
+    margin: 20px auto;
+    max-width: 800px;
+    font-family: 'Arial', sans-serif;
+    margin-left: 20px;
+    margin-top: 150px;
+}
+.abouty {
+    margin-bottom: 20px;
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+p {
+    line-height: 1.6;
+    color: #555;
+}
+
+
+.about-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    margin-top: 20px; /* Adjust spacing as needed */
+}
+
+.aboutt {
+    flex: 1; /* Allows the paragraph to take available space */
+}
+
+.imagee {
+    flex-shrink: 0; /* Prevent the image from shrinking */
+}
+
+.imagee img {
+    width: 400px; /* Set a fixed width */
+    height: 400px; /* Set a fixed height */
+    border-radius: 50%; /* Makes the image circular */
+    animation: rotate 10s linear infinite; /* Animation for rotation */
+    transition: transform 0.3s ease; /* Smooth transition for zoom */
+    margin-right: 90px;
+    margin-top: 100px;
+    box-shadow: 0px 4px 20px  rgb(21, 169, 21);
+}
+
+.imagee img:hover {
+    transform: scale(1.1); /* Zoom in effect */
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.testimonial-slider {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.testimonial-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    width: 280px;
+    height: 320px;
+    box-shadow: 0px 4px 15px rgba(21, 169, 21, 0.5); /* ظل أخضر ناعم */
+  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 6px 25px rgba(21, 169, 21, 0.8); /* تكثيف الظل عند التحويم */
+}
+.abouty h1 span{
+color:  rgb(255, 142, 21);
+}
+.paragh p strong{
+    color:  rgb(255, 142, 21);
+}

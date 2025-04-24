@@ -1,0 +1,74 @@
+.footer {
+  background-color: #68cc6b;
+  color: rgb(0, 0, 0);
+  margin-top: -450px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
+  padding-bottom: 0px;
+  width: calc(100% - 40px);
+  
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-evenly; /* توزيع العناصر بشكل متساوٍ */
+  align-items: center; /* محاذاة العناصر عموديًا */
+  
+  width: 100%;
+}
+
+.company, .contact {
+  flex: 0.4;
+ 
+ 
+
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 5px 0;
+}
+
+.social-media {
+  display: flex;
+  justify-content: space-evenly; 
+  flex: 0.2; 
+  margin-right: 40px;
+  margin-left: 200px;
+
+}
+
+.social-media a {
+  margin-right: 10px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+.social-media a:hover {
+  text-decoration: underline;
+}
+
+.nav-logo0 {
+  margin-left: 0px;
+  margin-right: 400px;
+}
+
+.company ul, .contact ul {
+  display: grid;
+  gap: 8px;
+}
+
+ 
+  
+
+ 
+  

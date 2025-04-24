@@ -1,0 +1,118 @@
+/* تخصيص العنصر الذي يحتوي على الكتاب */
+.item {
+  width: 230px;  /* العرض ثابت */
+  height: 420px;  /* الارتفاع ثابت */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f78c27;  /* لون الخلفية */
+  border-radius: 10px;  /* الزوايا المدورة */
+  box-shadow: 5px 3px 3px rgb(98, 130, 62);  /* الظل الناعم */
+  margin: 10px;
+  overflow: hidden;
+  padding: 10px;  /* المسافة بين الحواف */
+  box-sizing: border-box;
+}
+
+/* تحديد إطار الصورة */
+.image-frame {
+  width: 100%;
+  height: 250px;  /* ارتفاع ثابت */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f78c27;  /* لون الخلفية للإطار */
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.image-frame img {
+  width: auto;  /* العرض يتكيف تلقائيًا */
+  height: 100%;  /* الصورة تأخذ الارتفاع بالكامل */
+  object-fit: cover;  /* الحفاظ على نسبة الأبعاد وملء الإطار */
+}
+
+/* تخصيص العنوان */
+.item-title {
+  font-size: 15px;  /* حجم خط العنوان */
+  color: #333;  /* لون النص */
+  text-align: center;
+  margin-top: 8px;  /* المسافة بين الصورة والعنوان */
+  font-weight: bold;
+  max-height: 50px;  /* الحد الأقصى للارتفاع في حالة العناوين الطويلة */
+  overflow: hidden;  /* قطع النص إذا تجاوز الحد */
+  text-overflow: ellipsis;  /* إظهار "..." إذا كان النص طويلًا جدًا */
+  line-height: 1.2;
+}
+
+/* تخصيص الأزرار */
+.item-price, .item button {
+  margin-top: 5px;  /* تقليل المسافة بين العنوان والأزرار */
+}
+
+/* تخصيص زر السعر */
+.item-price button {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  padding: 10px 72px;
+  background-color: #3f7e37;  /* نفس لون الأزرار */
+  border: none;
+  border-radius: 10px;
+  color: rgb(249, 252, 247);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 160px;  /* عرض ثابت */
+  height: 40px;  /* ارتفاع ثابت */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* تخصيص الأزرار الجديدة */
+.item-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* تخصيص زر الاستعارة وزر قائمة الرغبات */
+.borrow-button, .wishlist-button {
+  margin-top: 5px;
+  padding: 8px 0;
+  background-color: #3f7e37;  /* اللون الأخضر للأزرار */
+  border: none;
+  border-radius: 10px;
+  color: rgb(249, 252, 247);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 100%;  /* عرض كامل */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wishlist-button {
+  background-color: #ff920e;  /* لون مختلف لقائمة الرغبات */
+}
+
+/* تأثير التمرير على الأزرار */
+.borrow-button:hover, .item-price button:hover {
+  background-color: #65b358;  /* تدرج اللون عند المرور */
+  transform: scale(1.02);  /* تأثير تكبير خفيف عند التمرير */
+}
+
+.wishlist-button:hover {
+  background-color: #ffaa40;  /* تدرج اللون عند المرور لقائمة الرغبات */
+  transform: scale(1.02);  /* تأثير تكبير خفيف عند التمرير */
+}
+
+/* إزالة الخط من رابط Link */
+.item a {
+  text-decoration: none !important; /* إزالة الخط تحت النص */
+}
+
+
