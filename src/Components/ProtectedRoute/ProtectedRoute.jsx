@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
+
 
 const ProtectedRoute = ({ children }) => {
     const { user, loading, error } = useAuth();
@@ -21,5 +21,17 @@ const ProtectedRoute = ({ children }) => {
 
     return children;
 };
+const LoadingIndicator = () => (
+  <div style={{
+    textAlign: 'center',
+    padding: '20px',
+    fontSize: '18px',
+    fontWeight: 'bold',
+    color: '#f99b10'
+  }}>
+    ⏳ Loading...
+  </div>
+);
+
 
 export default ProtectedRoute;

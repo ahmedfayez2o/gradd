@@ -2,7 +2,7 @@ import React from 'react';
 import './Cart.css';
 import { useBookContext } from '../../context/BookContext';
 import { orderService } from '../../services/orderService';
-import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
+
 
 const Cart = () => {
     const {
@@ -30,9 +30,10 @@ const Cart = () => {
         }
     };
 
-    if (loading) {
-        return <LoadingIndicator />;
-    }
+  if (loading) {
+    return <div>Loading...</div>;
+}
+
 
     return (
         <div className="cart-container">

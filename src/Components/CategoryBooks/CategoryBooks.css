@@ -339,6 +339,21 @@
     font-weight: bold;
 }
 
+.sort-dropdown {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.sort-dropdown select {
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 20px;
+  background-color: #f99b10;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
 
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../Button/Button';
+
 import './ErrorMessage.css';
 
 const ErrorMessage = ({ 
@@ -8,6 +8,15 @@ const ErrorMessage = ({
     onRetry,
     showRetry = true
 }) => {
+    const Button = ({ onClick, children, variant = "primary" }) => {
+  const className = `btn btn-${variant}`;
+  return (
+    <button onClick={onClick} className={className}>
+      {children}
+    </button>
+  );
+};
+
     return (
         <div className="error-container">
             <div className="error-content">

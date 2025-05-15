@@ -40,8 +40,17 @@ body {
     margin-bottom: 10px;
 }
 .text p{
-    font-size: 16px;
-    margin-bottom: 10px;
+       background: none;            /* إزالة الخلفية */
+    border: none;                /* إزالة الحدود */
+    color: #ff920e; /* لون برتقالي عند المرور */
+    text-shadow: 0 0 8px #ff920e;
+    text-decoration: none !important; /* إزالة الخط عند المرور لنعومة أكثر */           /* لون النص، أخضر مريح */
+    font-size: 1.2rem;           /* حجم خط أكبر قليلاً */
+    font-weight: 600;            /* خط ثقيل */
+    cursor: pointer;             /* يد عند المرور */
+    padding: 0;                  /* إزالة الحشو */
+    text-decoration: underline; /* خط تحت النص */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 
 }
 .text span{
@@ -75,19 +84,21 @@ body {
     50% { transform: translateY(-20px); }
 }
 .explore-button {
-    background-color: #ff920e; /* Button color */
-    color: rgb(0, 0, 0); /* Button text color */
-    border: none;
-    border-radius: 20px; /* Rounded corners */
-    padding: 10px 20px; /* Padding inside the button */
-    font-size: 1rem; /* Button font size */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
-}
-
-.explore-button:hover {
-    background-color: #f5bc66; /* Darker button color on hover */
-}
+    background: none;            /* إزالة الخلفية */
+    border: none;                /* إزالة الحدود */
+    color: #ff920e; /* لون برتقالي عند المرور */
+    text-shadow: 0 0 8px #ff920e;
+    text-decoration: none !important; /* إزالة الخط عند المرور لنعومة أكثر */           /* لون النص، أخضر مريح */
+    font-size: 1.2rem;           /* حجم خط أكبر قليلاً */
+    font-weight: 600;            /* خط ثقيل */
+    cursor: pointer;             /* يد عند المرور */
+    padding: 0;                  /* إزالة الحشو */
+    text-decoration: underline; /* خط تحت النص */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+  
+  
+  
 .h1{
     
         font-size: 3rem; /* Large font size */
@@ -198,5 +209,27 @@ body {
       flex-direction: column;
       align-items: center;
     }
+  }
+
+  .typing-button span {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #ff920e; /* مؤشر الكتابة */
+    animation: typing 2s steps(13, end), blink 0.75s step-end infinite;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ff920e;
+    text-shadow: 0 0 8px #ff920e;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink {
+    0%, 100% { border-color: transparent }
+    50% { border-color: #ff920e }
   }
   

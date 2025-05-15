@@ -10,14 +10,7 @@ const Footer = () => {
         <div className="nav-logo0">
           <img src={logo} alt="Logo" />
         </div>
-        <div className="company">
-          <h3>COMPANY</h3>
-          <ul>
-            <li>ABOUT US</li>
-            <li>OUR PROJECTS</li>
-            <li>OUR SERVICES</li>
-          </ul>
-        </div>
+        
         <div className="contact">
           <h3>CONTACT</h3>
           <ul>
@@ -28,16 +21,17 @@ const Footer = () => {
         </div>
       
         <div className="social-media">
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-            <FaFacebook size={24} />
-          </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-            <FaLinkedin size={24} />
-          </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-            <FaInstagram size={24} />
-          </a>
-        </div>
+  <a href="https://www.facebook.com/share/1Mk2ZsZmes/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+    <FaFacebook size={24} />
+  </a>
+  <a href="https://www.linkedin.com/in/iqraa-1p-b06a9b338/" target="_blank" rel="noopener noreferrer">
+    <FaLinkedin size={24} />
+  </a>
+  <a href="https://www.instagram.com/iqraa1p" target="_blank" rel="noopener noreferrer">
+    <FaInstagram size={24} />
+  </a>
+</div>
+
       </div>
     </footer>
   );

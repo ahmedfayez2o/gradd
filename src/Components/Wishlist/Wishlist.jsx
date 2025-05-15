@@ -2,7 +2,18 @@ import React from 'react';
 import './Wishlist.css';
 import { useBookContext } from '../../context/BookContext';
 import { orderService } from '../../services/orderService';
-import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
+
+const LoadingIndicator = () => (
+  <div style={{
+    textAlign: 'center',
+    padding: '20px',
+    fontSize: '18px',
+    fontWeight: 'bold',
+    color: '#f99b10'
+  }}>
+    ⏳ Loading...
+  </div>
+);
 
 const Wishlist = () => {
     const {

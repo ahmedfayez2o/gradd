@@ -3,15 +3,9 @@
     position: relative;
     transform: translateY(-430px);
     background-color: #fffbe7; /* Background color */
-    text-align: center;
-    padding:10px;
-    margin-top: 0px;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    margin-left: 20px;
+    padding: 10px;
+    margin: 0 20px 20px 20px;
     padding-bottom: 90px;
-    
-    
 }
 
 h2 {
@@ -19,11 +13,10 @@ h2 {
     margin-bottom: 20px;
 }
 
-
-
 .rating {
     font-size: 1.2em;
     color: gold;
+    margin-top: 8px;
 }
 
 .about {
@@ -34,31 +27,30 @@ h2 {
     padding: 20px;
 }
 
-
-
 .profile-image {
-    width: 120px; /* Adjust image size */
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover; /* Ensure image maintains aspect ratio */
-    margin-left: 20px; /* Add space to the left of the image */
+    margin-bottom: 15px;
 }
 
 /* src/About.css */
 .aboutt {
-   width:100px;
+    width: 100px;
     padding: 20px;
     border-radius: 8px;
-   
     margin: 20px auto;
     max-width: 800px;
     font-family: 'Arial', sans-serif;
     margin-left: 20px;
     margin-top: 150px;
 }
+
 .abouty {
     margin-bottom: 20px;
 }
+
 h1 {
     text-align: center;
     color: #333;
@@ -68,7 +60,6 @@ p {
     line-height: 1.6;
     color: #555;
 }
-
 
 .about-container {
     display: flex; /* Use flexbox for layout */
@@ -93,7 +84,7 @@ p {
     transition: transform 0.3s ease; /* Smooth transition for zoom */
     margin-right: 90px;
     margin-top: 100px;
-    box-shadow: 0px 4px 20px  rgb(21, 169, 21);
+    box-shadow: 0px 4px 20px rgb(21, 169, 21);
 }
 
 .imagee img:hover {
@@ -104,11 +95,13 @@ p {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
 .testimonial-slider {
     width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
 }
+
 .testimonial-card {
     background: white;
     border-radius: 15px;
@@ -116,22 +109,62 @@ p {
     text-align: center;
     width: 280px;
     height: 320px;
-    box-shadow: 0px 4px 15px rgba(21, 169, 21, 0.5); /* ظل أخضر ناعم */
-  
+    box-shadow: 0px 4px 15px rgba(21, 169, 21, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    overflow: hidden; /* يمنع خروج المحتوى خارج الكارد */
 }
 
 .testimonial-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0px 6px 25px rgba(21, 169, 21, 0.8); /* تكثيف الظل عند التحويم */
+    box-shadow: 0px 6px 25px rgba(21, 169, 21, 0.8);
 }
-.abouty h1 span{
-color:  rgb(255, 142, 21);
+
+.testimonial-card p {
+    white-space: normal;       /* يسمح بلف النص */
+    word-wrap: break-word;     /* يكسر الكلمات الطويلة */
+    word-break: break-word;    /* ضمان الكسر في كلمات طويلة جداً */
+    max-height: 120px;         /* أقصى ارتفاع للتعليق */
+    overflow-y: auto;          /* إظهار شريط تمرير عمودي إذا زاد النص */
+    margin-top: 10px;
+    font-size: 14px;
+    color: #444;
+    padding-right: 5px;        /* مساحة لشريط التمرير */
 }
-.paragh p strong{
-    color:  rgb(255, 142, 21);
+
+.testimonial-card h3 {
+    margin: 5px 0;
+    font-size: 18px;
+    color: #222;
 }
+
+.abouty h1 span {
+    color: rgb(255, 142, 21);
+}
+
+.paragh p strong {
+    color: rgb(255, 142, 21);
+}
+
+.show-more-button {
+  background: linear-gradient(45deg, #44c140, #ff8e15);
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;          /* صغرنا حجم الخط */
+  padding: 8px 20px;          /* قللنا الحشو داخل الزرار */
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(249, 155, 16, 0.6);
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 20px;           /* أضفنا مسافة فوق الزرار تبعده عن الفقرة */
+  display: inline-block;      /* يضمن ان المسافة تشتغل صح */
+}
+
+
+
