@@ -38,7 +38,7 @@
 }
 
 .borrow-button, 
-.price-button, 
+ 
 .favorite-button {
     border: none;
     border-radius: 25px !important; /* زيادة استدارة الزر */
@@ -48,6 +48,10 @@
     transition: background-color 0.3s;
     width: 100% !important; /* ليكون بنفس العرض */
     text-align: center;
+      transition: background-color 0.3s ease, transform 0.3s ease !important;
+       cursor: pointer;
+   
+
 }
 .rating-bar-container {
   margin: 20px 0;
@@ -91,44 +95,60 @@
 
 
 .borrow-button {
-    background-color: #4CAF50;
+    background-color: #4CAF50 !important;
     color: white;
+    
 }
 
-.price-button {
-    background-color: #4CAF50; /* لون أصفر */
-    color: black;
+
+
+.favorite-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* مسافة بين الأيقونة والنص */
+  
+     background-color: #FF4D4D; 
+  color: white;
+  font-size: 10px;
+  
+  
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  width: 80%;
+  
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+ }
+
+.favorite-button:hover {
+     background-color: #FF4D4D; 
+  transform: scale(1.03);
 }
 
-.favorite-button {
-    background-color: #FF4D4D; /* لون أحمر */
-    color: white;
-}
+  
 
-/* تأثير عند تمرير الماوس */
+
+
+
+
 .borrow-button:hover {
     background-color: #3bc042;
 }
 
-.price-button:hover {
-    background-color: #3bc042;
-}
 
-.favorite-button:hover {
-    background-color: #D43F3F;
-}
+
+
 
   
   .book-price {
-   background-color: #4CAF50;
-    border: none;
-    border-radius: 20px; /* Rounded corners */
-    padding: 10px 20px !important; /* Padding inside the button */
-    font-size: 1rem; /* Button font size */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; 
-    margin-bottom: 7px;
-   width: 160px;
+    font-size: 18px;
+  color: #1f1d1d !important;
+  font-weight: bold;
+  text-align: center;
+ 
 
   }
   
@@ -551,8 +571,8 @@
 }
 
 .book-image {
-  width: 170px; /* زيادة عرض الصورة */
-  height: auto; /* الحفاظ على النسبة */
+  width: 170px; 
+  height: auto; 
   border-radius: 12px;
   box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
@@ -600,4 +620,69 @@
   min-width: 80px;
   font-size: 14px;
   color: #555;
+}
+@media (max-width: 768px) {
+  .book-detail {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .book-image-container {
+    width: 50%;
+    margin-bottom: 20px;
+  }
+
+  .book-info {
+    width: 100%;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .book-info h1 {
+    margin-left: 0;
+  }
+
+  .genres-tags {
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .borrow-button, 
+  .price-button, 
+  .favorite-button {
+   
+      width: 90%;  
+    padding: 8px 20px;
+    font-size: 1rem;  
+  }
+
+  .submit-review {
+    width: 90%;
+    font-size: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .book-image {
+    width: 60%;
+  }
+
+  .author-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .author-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  .author-details {
+    text-align: center;
+  }
+}
+ .favorite-button {
+  margin-top: 7px;
 }

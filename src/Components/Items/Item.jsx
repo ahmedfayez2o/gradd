@@ -55,16 +55,13 @@ const Item = (props) => {
       </Link>
 
       <p className="item-title">{props.title}</p> 
-
-      <div className="item-price">
-        <button>${props.new_price}</button>
-      </div>
+      <p className="item-price">${props.new_price}</p>
 
       <div className="item-buttons">
-        <button onClick={handleAddToCart} className="borrow-button">
+        <button onClick={handleAddToCart} className="item-button">
           Add to Cart
         </button>
-        <button onClick={handleAddToWishlist} className="wishlist-button">
+        <button onClick={handleAddToWishlist} className="item-button">
           Add to My Books
         </button>
       </div>
@@ -73,7 +70,6 @@ const Item = (props) => {
 };
 
 export default Item;
-
 
 
 

@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
-import Item from '../Items/Item';  // تأكد من استيراد المكون Item بشكل صحيح
+import Item from '../Items/Item';  
 
 const BookSwiper = ({ data }) => {
   return (
@@ -15,8 +15,8 @@ const BookSwiper = ({ data }) => {
       navigation
       pagination={{ clickable: true }}
       breakpoints={{
-        640: { slidesPerView: 1, spaceBetween: 10 },
-        768: { slidesPerView: 2, spaceBetween: 20 },
+        640: { slidesPerView: 4, spaceBetween: 10 },
+        768: { slidesPerView: 4, spaceBetween: 20 },
         1024: { slidesPerView: 3, spaceBetween: 30 },
         1280: { slidesPerView: 4, spaceBetween: 30 },
       }}

@@ -65,6 +65,15 @@ body {
     position: relative; /* Allow absolute positioning of the image */
     box-shadow: 0 4px 10px rgba(15, 107, 64, 0.767); /* Shadow effect */
     transform: rotate(-10deg);
+      position: relative;
+  
+
+  aspect-ratio: 2 / 1;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
     
 }
 
@@ -76,7 +85,12 @@ body {
     animation: bounce 3s infinite; /* Example animation */
     width: 300px; /* Make the image larger */
     height: auto; /* Maintain aspect ratio */
+      position: absolute;
     
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
 @keyframes bounce {
@@ -204,32 +218,124 @@ body {
     transform: rotate(-2deg) scale(1.363) translateX(-30px) translateY(-160px); /* Opposite direction */
     box-sizing: border-box;
 }
+
+
 @media (max-width: 768px) {
-    .sparite-item {
-      flex-direction: column;
-      align-items: center;
-    }
+  .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
   }
 
-  .typing-button span {
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid #ff920e; /* مؤشر الكتابة */
-    animation: typing 2s steps(13, end), blink 0.75s step-end infinite;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #ff920e;
-    text-shadow: 0 0 8px #ff920e;
+
+  .text {
+    font-size: 20px;
+    padding: 0;
+    text-align: center;
+     padding-bottom: 50px; 
   }
-  
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+
+  .text h1 {
+    font-size: 2rem;
+    text-align: center;
   }
-  
-  @keyframes blink {
-    0%, 100% { border-color: transparent }
-    50% { border-color: #ff920e }
+
+ 
+ 
+  .oval {
+    width: 250px;
+    height: 130px;
+    transform: rotate(0deg);
+    margin-bottom: 60px; 
+    background-color: rgb(60, 141, 96); 
+    border-radius: 100%;
+    position: relative; 
+    box-shadow: 0 4px 10px rgba(15, 107, 64, 0.767); 
+    transform: rotate(-10deg);
+      position: relative;
   }
+
+  .oval img {
+    top: -20px; 
+    left: 15%;
+    transform: translateX(-50%) translateY(0); 
+    width: 160px;
+    animation: bounce 3s infinite;
+    position:absolute;
+    height: auto; 
+      position: absolute;
+  }
+  .sparite-items.container.txtCap {
+  max-width: 900px; 
+  margin: 50px auto 0 auto; 
+  padding: 0 20px; 
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 90px;
+}
+        
+.mr{
+    border-bottom: 20px solid rgb(235, 131, 61);
+   
+    width: 100%; /* Adjust the width as needed */
+    display: flex;
+    transform: rotate(2deg) scale(2.210) translateX(-8px) translateY(-130px);
+    box-sizing: border-box;
+    padding-top: 150px;
+    
+}
+.o{
+    border-bottom: 20px solid rgb(60, 141, 96);
+    width: 100%;
+    display: flex;
+    transform: rotate(-5deg) scale(2.210) translateX(10px) translateY(-100px); /* Opposite direction */
+    box-sizing: border-box;
+     padding-top: 5px;
+}
+
+.mr, .o {
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sparite-item {
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+}
+
+
+
+
   
+}
+@media (max-width: 1500px) {
+            
+.mr{
+    border-bottom: 20px solid rgb(235, 131, 61);
+   
+    width: 100%; /* Adjust the width as needed */
+    display: flex;
+    transform: rotate(2deg) scale(2.210) translateX(-8px) translateY(-130px);
+    box-sizing: border-box;
+    padding-top: 150px;
+    
+}
+.o{
+    border-bottom: 20px solid rgb(60, 141, 96);
+    width: 100%;
+    display: flex;
+    transform: rotate(-5deg) scale(2.210) translateX(10px) translateY(-100px); /* Opposite direction */
+    box-sizing: border-box;
+     padding-top: 5px;
+}
+
+.mr, .o {
+  width: 100vw;  
+  max-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}}

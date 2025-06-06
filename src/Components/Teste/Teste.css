@@ -144,6 +144,88 @@
   padding: 0;
   box-sizing: border-box;
 }
+@media (max-width: 768px) {
+  .mm{
+    border-bottom: 20px solid rgb(235, 131, 61);
+   
+    width: 100%; /* Adjust the width as needed */
+    display: flex;
+    transform: rotate(2deg) scale(2.210) translateX(-8px) translateY(-60px);
+    box-sizing: border-box;
+    padding-top: 150px;
+    
+}
+.oo{
+    border-bottom: 20px solid rgb(60, 141, 96);
+    width: 100%;
+    display: flex;
+    transform: rotate(-5deg) scale(2.210) translateX(10px) translateY(-30px); /* Opposite direction */
+    box-sizing: border-box;
+     padding-top: 5px;
+}
+
+.mm, .oo {
+  pointer-events: none;
+  z-index: 1;
+}
+}
 
 
 
+  
+
+@media (max-width: 1500px) {
+            
+  .mm{
+    border-bottom: 20px solid rgb(235, 131, 61);
+   
+    width: 100%; /* Adjust the width as needed */
+    display: flex;
+    transform: rotate(2deg) scale(2.210) translateX(-8px) translateY(-60px);
+    box-sizing: border-box;
+    padding-top: 150px;
+    
+}
+.oo{
+    border-bottom: 20px solid rgb(60, 141, 96);
+    width: 100%;
+    display: flex;
+    transform: rotate(-5deg) scale(2.210) translateX(10px) translateY(-30px); /* Opposite direction */
+    box-sizing: border-box;
+     padding-top: 5px;
+}
+
+.mm, .oo {
+  pointer-events: none;
+  z-index: 1;
+
+}}
+@media (max-width: 1100px) {
+  .flex-container {
+    flex-direction: column; /* اجعلها عمودية */
+    align-items: center;     /* مركز العناصر */
+    margin-top: 80px;        /* قللي المسافة العلوية */
+    padding: 0 20px;         /* بعض الحشو من الجوانب */
+  }
+
+  .illustration {
+    margin: 0 auto 20px auto; /* توسيط وتقليل الفراغ */
+  }
+
+  .illustration img {
+    width: 220px;       /* تصغير الصورة */
+    height: 220px;      /* المحافظة على الشكل الدائري */
+    border-radius: 50%;
+  }
+
+  .Quote {
+    font-size: 1.1em;   /* تصغير حجم الخط */
+    text-align: center; /* محاذاة النص للوسط */
+  }
+
+  .flex-container button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    margin-top: 20px;
+  }
+}

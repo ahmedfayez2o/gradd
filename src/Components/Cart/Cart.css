@@ -4,6 +4,7 @@
     margin: 20px;
     border-radius: 8px;
     min-height: calc(100vh - 200px);
+     margin-top: 0px;
 }
 
 .cart-container h2 {

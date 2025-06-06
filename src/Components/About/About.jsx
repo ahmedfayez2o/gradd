@@ -55,6 +55,19 @@ const About = () => {
         pagination={{ clickable: true }}
         modules={[EffectCoverflow, Pagination]}
         className="testimonial-slider"
+       breakpoints={{
+    
+    480: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 5,
+      spaceBetween: 30,
+    },}}
+   
+ 
+  
       >
         {testimonials.map((testimonial, index) => (
           <SwiperSlide key={index} className="testimonial-card">

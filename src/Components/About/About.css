@@ -73,7 +73,7 @@ p {
 }
 
 .imagee {
-    flex-shrink: 0; /* Prevent the image from shrinking */
+    flex-shrink: 0; 
 }
 
 .imagee img {
@@ -115,7 +115,7 @@ p {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    overflow: hidden; /* يمنع خروج المحتوى خارج الكارد */
+    overflow: hidden; 
 }
 
 .testimonial-card:hover {
@@ -124,15 +124,15 @@ p {
 }
 
 .testimonial-card p {
-    white-space: normal;       /* يسمح بلف النص */
-    word-wrap: break-word;     /* يكسر الكلمات الطويلة */
-    word-break: break-word;    /* ضمان الكسر في كلمات طويلة جداً */
-    max-height: 120px;         /* أقصى ارتفاع للتعليق */
-    overflow-y: auto;          /* إظهار شريط تمرير عمودي إذا زاد النص */
+    white-space: normal;       
+    word-wrap: break-word;    
+    word-break: break-word;   
+    max-height: 120px;         
+    overflow-y: auto;         
     margin-top: 10px;
     font-size: 14px;
     color: #444;
-    padding-right: 5px;        /* مساحة لشريط التمرير */
+    padding-right: 5px;        
 }
 
 .testimonial-card h3 {
@@ -153,8 +153,8 @@ p {
   background: linear-gradient(45deg, #44c140, #ff8e15);
   color: white;
   font-weight: 700;
-  font-size: 0.9rem;          /* صغرنا حجم الخط */
-  padding: 8px 20px;          /* قللنا الحشو داخل الزرار */
+  font-size: 0.9rem;          
+  padding: 8px 20px;          
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -162,9 +162,70 @@ p {
   transition: all 0.3s ease;
   letter-spacing: 1px;
   text-transform: uppercase;
-  margin-top: 20px;           /* أضفنا مسافة فوق الزرار تبعده عن الفقرة */
-  display: inline-block;      /* يضمن ان المسافة تشتغل صح */
+  margin-top: 20px;           
+  display: inline-block;      
 }
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;         
+    align-items: center;
+    text-align: center;
+  }
+
+  .aboutt {
+    margin: 20px;                   
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  .imagee img {
+    width: 250px;                   
+    height: 250px;
+    margin-top: 30px;
+    margin-right: 0;                 
+  }
+
+  .show-more-button {
+    font-size: 0.8rem;
+    padding: 8px 16px;
+  }
+  .paragh p {
+  font-size: 14px;              
+  max-width: 500px;            
+  line-height: 1.4;            
+  margin: 10px auto;          
+  color: #555;                   
+  text-align: justify;           
+}
+.aboutt {
+  width: 100%;
+  max-width: 600px;
+  padding: 10px;
+  margin: 20px auto;
+  font-size: 14px;
+}
+
+}
+@media (max-width: 768px) {
+  .testimonial-card {
+    width: 20%;
+    height: auto;
+  
+    font-size: 14px;
+  }
+
+  .testimonial-card p {
+    font-size: 13px;
+    max-height: 100px;
+    overflow-y: auto;
+  }
+
+
+    
+   
+  
+}
+
 
 
 

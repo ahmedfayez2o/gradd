@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './BookDetail.css';
 import BookInfo from '../BookInfo/BookInfo';
 import AuthorInfo from '../AuthorInfo/AuthorInfo';
+import { useAuth } from '../../context/AuthContext';
+import { useBookContext } from '../../context/BookContext';
+import { showToast } from '../../utils/apiHandler';
 
 const BookDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [book, setBook] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [favorites, setFavorites] = useState([]);
   const [authorInfo, setAuthorInfo] = useState(null);
+
+  const { isAuthenticated } = useAuth();
+  const { addToCart, addToWishlist, cart, wishlist } = useBookContext();
+
+  const isInCart = cart.some(item => item.id === book?.id);
+  const isInWishlist = wishlist.some(item => item.id === book?.id);
 
   useEffect(() => {
     const fetchBookData = async () => {
@@ -32,7 +42,7 @@ const BookDetail = () => {
           format: data.volumeInfo?.printType || 'Unknown',
           published: data.volumeInfo?.publishedDate || 'Unknown',
           asin: data.volumeInfo?.industryIdentifiers?.[0]?.identifier || 'N/A',
-          language: data.volumeInfo?.language ? data.volumeInfo.language.toUpperCase() : 'Unknown'
+          language: data.volumeInfo?.language?.toUpperCase() || 'Unknown',
         };
 
         setBook(bookData);
@@ -67,6 +77,34 @@ const BookDetail = () => {
     fetchBookData();
   }, [id]);
 
+  const handleAddToCart = async () => {
+    if (!isAuthenticated) {
+      showToast.warning('Please login to add items to cart');
+      navigate('/login');
+      return;
+    }
+
+    try {
+      await addToCart(book);
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+    }
+  };
+
+  const handleAddToWishlist = async () => {
+    if (!isAuthenticated) {
+      showToast.warning('Please login to add items to wishlist');
+      navigate('/login');
+      return;
+    }
+
+    try {
+      await addToWishlist(book);
+    } catch (error) {
+      console.error('Error adding to wishlist:', error);
+    }
+  };
+
   const addToFavorites = () => {
     const updatedFavorites = [...favorites, book];
     setFavorites(updatedFavorites);
@@ -83,9 +121,24 @@ const BookDetail = () => {
         <div className="book-image-container">
           <img src={book.image} alt={book.title} className="book-image" />
           <div className="button-container">
-            <button className="borrow-button">BORROW</button>
-            <button className="price-button">${book.price}</button>
-            <button className="favorite-button" onClick={addToFavorites}>❤️ My Books</button>
+            <div className="price-button">Price: ${book.price}</div>
+            <div className="book-actions">
+              <button
+                className="borrow-button"
+                onClick={handleAddToCart}
+                disabled={isInCart}
+              >
+                {isInCart ? 'In Cart' : 'Add to Cart'}
+              </button>
+
+              <button
+                className="favorite-button"
+                onClick={handleAddToWishlist}
+                disabled={isInWishlist}
+              >
+                {isInWishlist ? 'In My Books' : 'Add to My Books'}
+              </button>
+            </div>
           </div>
         </div>
 
