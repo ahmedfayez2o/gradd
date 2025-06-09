@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Teste.css';
 import BookSwiper from '../BookSwiper/BookSwiper';
 import illustration from '../Images/photo_2024-12-21_19-23-24.jpg';
+import { Link } from 'react-router-dom';
 
 const Teste = () => {
   const [books, setBooks] = useState([]); 
@@ -40,7 +41,10 @@ const Teste = () => {
         </div>
         <div className="Quote">
           <p>LIVE AS IF YOU WERE TO DIE TOMORROW,<span> LEARN AS IF YOU WERE TO LIVE FOREVER</span></p>
-          <button>My Books</button>
+        
+<button>
+  <Link to="/my-books" className="link-button">My Books</Link>
+</button>
         </div>
       </div>
     </div>
