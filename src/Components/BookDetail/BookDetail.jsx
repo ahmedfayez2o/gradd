@@ -6,6 +6,7 @@ import AuthorInfo from '../AuthorInfo/AuthorInfo';
 import { useAuth } from '../../context/AuthContext';
 import { useBookContext } from '../../context/BookContext';
 import { showToast } from '../../utils/apiHandler';
+import ReviewManager from '../ReviewManager/ReviewManager';
 
 const BookDetail = () => {
   const { id } = useParams();
@@ -146,6 +147,7 @@ const BookDetail = () => {
       </div>
 
       <AuthorInfo authorInfo={authorInfo} />
+       <ReviewManager bookId={id} />
     </div>
   );
 };

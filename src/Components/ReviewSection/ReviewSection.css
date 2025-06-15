@@ -1,0 +1,116 @@
+
+  
+
+  .add-review h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+
+  .add-review textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    resize: vertical;
+    margin-bottom: 10px;
+  }
+  
+
+  .rating-input {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    gap: 10px;
+  }
+  
+  .rating-input select {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  /* زر إرسال المراجعة */
+  .submit-comment-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 50%;
+    margin-top: 10px;
+  }
+  
+  .submit-comment-button:hover {
+    background-color: #3bc042;
+  }
+  
+
+  .reviews-list {
+    margin-top: 30px;
+  }
+  
+
+  .review-item {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+  
+
+  .review-user {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  
+
+  .review-rating {
+    color: #f4b400;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+
+  .review-text {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+
+  .show-more-button {
+    background-color: #337926;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+  }
+  
+  .show-more-button:hover {
+    background-color: #00b330;
+  }
+  .rating-section select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
